@@ -20,9 +20,11 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
-
-      - name: Upload html test report
+      - name: Run lint
+        run: ./gradlew lintDebug
+        
+      - name: Upload lint results report
         uses: actions/upload-artifact@v2
         with:
-          name: lint.html
+          name: lint-results-debug.html
           path: app/build/reports/lint-results-debug.html
